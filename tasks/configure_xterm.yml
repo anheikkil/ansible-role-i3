@@ -1,0 +1,16 @@
+---
+- name: Install xterm package
+  tags: package,terminal-emulator
+  become: true
+  ansible.builtin.package:
+    name: "{{ xterm_package }}"
+    state: present
+  when: install_xterm
+
+- name: Remove xterm package
+  tags: package,terminal-emulator
+  become: true
+  ansible.builtin.package:
+    name: "{{ xterm_package }}"
+    state: absent
+  when: not install_xterm

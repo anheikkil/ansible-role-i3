@@ -2,3 +2,36 @@
 # tasks file for ansible_role_i3
 - name: Include variables
   ansible.builtin.include_tasks: tasks/include_vars.yml
+
+- name: Install system packages
+  tags: package
+  become: true
+  ansible.builtin.package:
+    name: "{{ system_packages }}"
+    state: present
+  when: install_i3
+
+- name: Install i3 packages
+  tags: package,wm,tiling
+  become: true
+  ansible.builtin.package:
+    name: "{{ i3_packages }}"
+    state: present
+  when: install_i3
+
+- name: Remove i3 packages
+  tags: package,wm,tiling
+  become: true
+  ansible.builtin.package:
+    name: "{{ i3_packages }}"
+    state: absent
+  when: not install_i3
+
+- name: Configure alacritty
+  ansible.builtin.include_tasks: tasks/configure_alacritty.yml
+
+- name: Configure rxvt-unicode
+  ansible.builtin.include_tasks: tasks/configure_rxvt_unicode.yml
+
+- name: Configure xterm
+  ansible.builtin.include_tasks: tasks/configure_xterm.yml

@@ -1,0 +1,52 @@
+---
+# vars file for ansible_role_i3
+alacritty_package: alacritty
+rxvt_unicode_package: rxvt-unicode
+xterm_package: xterm
+lightdm_packages:
+  - lightdm
+  - lightdm-settings
+  - slick-greeter
+#  - light-locker
+system_packages:
+  - adwaita-icon-theme
+  - brightnessctl
+  - colord
+  - dconf-cli
+  - fonts-hack
+  - gvfs-backends
+  - gvfs-fuse
+  - libnotify-bin
+  - policykit-1 # transitional package, depends on polkitd pkexec
+  - pop-pipewire # pipewire-audio
+  - sound-theme-freedesktop
+  - xclip
+  - xdg-desktop-portal
+  - xdg-desktop-portal-gtk
+  - xorg
+#  - blueman
+#  - bluez
+#  - dconf-gsettings-backend
+#  - gnome-keyring # pinentry-gnome3
+#  - libpam-gnome-keyring
+#  - libsecret-1-0
+#  - network-manager
+#  - papirus-icon-theme
+#  - pinentry-curses
+#  - pinentry-gtk2
+#  - pinentry-tty
+#  - policykit-1-gnome
+i3_packages:
+  - compton # picom
+  - i3 # meta package for i3-wm, dunst, i3lock and suckless-tools
+  - i3status
+  - polybar
+  - pulsemixer
+  - rofi
+  - scrot
+  - sxiv # imv
+  - xss-lock # xautolock
+  - xwallpaper
+#  - i3lock-fancy
+#  - redshift
+#  - redshift-gtk
